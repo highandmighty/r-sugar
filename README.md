@@ -9,4 +9,4 @@ library(sugarr)
 
 ### Functions
 - `download_feather()` — fetches Feather file from URL to dataframe.
-- `fetch_airtable()` — parses data from Airtable API as dataframe object.
+- `fetch_airtable()` — fetches data from Airtable API to dataframe.
