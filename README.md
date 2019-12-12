@@ -5,6 +5,9 @@ Personal R helper functions
 ```
 devtools::install_github('highandmighty/r-sugar')
 library(sugarr)
+
+> ?fetch_airtable
+> ?download_feather
 ```
 
 ### Functions
