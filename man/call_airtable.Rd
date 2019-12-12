@@ -7,9 +7,9 @@
 call_airtable(base, table, token, query)
 }
 \arguments{
-\item{base}{Airtable database URL e.g. \code{"https://api.airtable.com/v0/app5gby0DG3pF9KbB/"}}
+\item{base}{Airtable base ID e.g. \code{"app5gby0DG3pF9KbB"}}
 
-\item{table}{Airtable tablename e.g. \code{"table1"}}
+\item{table}{Airtable tablename e.g. \code{"tablename"}}
 
 \item{token}{Airtable API token}
 
@@ -19,7 +19,7 @@ call_airtable(base, table, token, query)
 JSON data if request was successful.
 }
 \description{
-Parse data from Airtable via API as JSON.
+Fetches data from a single call to Airtable API into JSON.
 }
 \examples{
 json = call_airtable(AT_BASE, AT_TABLE, AT_TOKEN, query=list("filterByFormula"="(appsboard=1)"))

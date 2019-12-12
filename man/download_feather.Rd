@@ -13,7 +13,7 @@ download_feather(url)
 A dataframe with Feather file's data.
 }
 \description{
-Fetch Feather file from URL to dataframe.
+Fetches Feather file from URL into dataframe.
 }
 \examples{
 dataframe = download_feather("http://example.com/data/table.feather")

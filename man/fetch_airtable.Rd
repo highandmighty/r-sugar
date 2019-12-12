@@ -9,9 +9,9 @@ fetch_airtable(..., query = list())
 \arguments{
 \item{query}{A list of query parameters e.g. \code{list("filterByFormula"="(appsboard=1)")}}
 
-\item{base}{Airtable database URL e.g. \code{"https://api.airtable.com/v0/app5gby0DG3pF9KbB/"}}
+\item{base}{Airtable base ID e.g. \code{"app5gby0DG3pF9KbB"}}
 
-\item{table}{Airtable tablename e.g. \code{"table1"}}
+\item{table}{Airtable tablename e.g. \code{"tablename"}}
 
 \item{token}{Airtable API token}
 }
@@ -19,7 +19,7 @@ fetch_airtable(..., query = list())
 A dataframe with Airtable data.
 }
 \description{
-Parse data from Airtable via API as dataframe object.
+Fetches data from Airtable API into dataframe.
 }
 \examples{
 at = fetch_airtable(AT_BASE, AT_TABLE, AT_TOKEN, query=list("filterByFormula"="(appsboard=1)"))
