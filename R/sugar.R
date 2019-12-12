@@ -7,9 +7,6 @@
 #   Build and Reload Package:  'Cmd + Shift + B'
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
-library(dplyr)
-library(httr)
-library(jsonlite)
 
 #' Airtable Caller
 #'
@@ -18,18 +15,17 @@ library(jsonlite)
 #' @inheritParams fetch_airtable
 #' @return JSON data if request was successful.
 #' @seealso [fetch_airtable()] which is built on top of this function.
-#' @export
 #' @examples
 #' json = call_airtable(AT_BASE, AT_TABLE, AT_TOKEN, query=list("filterByFormula"="(appsboard=1)"))
 call_airtable = function(base, table, token, query) {
   url = paste0(base, table)
-  r = GET(url, add_headers(Authorization=paste0("Bearer ", token)), query=query)
-  if (status_code(r) == 429) {
+  r = httr::GET(url, httr::add_headers(Authorization=paste0("Bearer ", token)), query=query)
+  if (httr::status_code(r) == 429) {
     print("Airtable API limit reached, 30 seconds break")
     Sys.sleep(30)
-    r = rerequest(r)
+    r = httr::rerequest(r)
   }
-  return(fromJSON(content(r, as="text", encoding="UTF-8")))
+  return(jsonlite::fromJSON(httr::content(r, as="text", encoding="UTF-8")))
 }
 
 #' Airtable Parser
@@ -54,14 +50,11 @@ fetch_airtable = function(..., query=list()) {
   if ("offset" %in% names(json)) {
     query["offset"] = json$offset
     df_nextpage = fetch_airtable(..., query=query)
-    return(bind_rows(df, df_nextpage))
+    return(dplyr::bind_rows(df, df_nextpage))
   } else {
     return(df)
   }
 }
-
-
-library(feather)
 
 #' Feather from URL Fetcher
 #'
@@ -76,5 +69,5 @@ download_feather = function(url) {
   temp = tempfile()
   on.exit(unlink(temp)) # removes temp file after function returns value
   download.file(url, temp, mode="wb")
-  return(read_feather(temp))
+  return(feather::read_feather(temp))
 }
