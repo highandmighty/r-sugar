@@ -3,7 +3,8 @@ Personal R helper functions
 
 ### Usage
 ```
-install_github('r-sugar','highandmighty')
+install_github('highandmighty/r-sugar')
+library(sugarr)
 ```
 
 ### Functions
