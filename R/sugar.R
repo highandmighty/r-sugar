@@ -1,12 +1,6 @@
 # R-Sugar
 #
-# This is helper functions for R.
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Cmd + Shift + B'
-#   Check Package:             'Cmd + Shift + E'
-#   Test Package:              'Cmd + Shift + T'
+# Personal helper functions for R of Arseny Afonin.
 
 #' Airtable Caller
 #'
@@ -44,7 +38,7 @@ call_airtable = function(base, table, token, query) {
 fetch_airtable = function(..., query=list()) {
   json = call_airtable(..., query=query)
   df = json$records
-  df = jsonlite::flatten(df) # 'rlang' package can mask 'flatten' function
+  df = jsonlite::flatten(df)
   colnames(df) = gsub("fields.", "", colnames(df))
 
   if ("offset" %in% names(json)) {
