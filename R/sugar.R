@@ -63,5 +63,5 @@ download_feather = function(url) {
   temp = tempfile()
   on.exit(unlink(temp)) # removes temp file after function returns value
   download.file(url, temp, mode="wb")
-  return(feather::read_feather(temp))
+  return(arrow::read_feather(temp))
 }
