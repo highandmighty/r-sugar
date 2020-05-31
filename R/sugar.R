@@ -67,3 +67,21 @@ download_feather = function(url) {
   df = df %>% dplyr::mutate_if(bit64::is.integer64, as.integer)
   return(df)
 }
+
+#' Parquet from URL Fetcher
+#'
+#' Fetches Parquet file from URL into dataframe.
+#'
+#' @param url A direct URL of Parquet file
+#' @return A dataframe with Parquet file's data.
+#' @export
+#' @examples
+#' dataframe = download_parquet("http://example.com/data/table.parquet")
+download_parquet = function(url) {
+  temp = tempfile()
+  on.exit(unlink(temp)) # removes temp file after function returns value
+  download.file(url, temp, mode="wb")
+  df = arrow::read_parquet(temp)
+  df = df %>% dplyr::mutate_if(bit64::is.integer64, as.integer)
+  return(df)
+}

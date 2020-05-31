@@ -1,7 +1,7 @@
 Package: sugarr
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.1
+Version: 0.1.2
 Author: Arseny Afonin
 Maintainer: Arseny Afonin <arseny@softculture.cc>
 Description: More about what it does (maybe more than one line)
