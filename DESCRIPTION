@@ -1,7 +1,7 @@
 Package: sugarr
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 0.1.1
 Author: Arseny Afonin
 Maintainer: Arseny Afonin <arseny@softculture.cc>
 Description: More about what it does (maybe more than one line)
@@ -11,7 +11,7 @@ Imports:
     dplyr,
     httr,
     jsonlite,
-    feather
+    arrow
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2

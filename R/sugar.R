@@ -63,5 +63,7 @@ download_feather = function(url) {
   temp = tempfile()
   on.exit(unlink(temp)) # removes temp file after function returns value
   download.file(url, temp, mode="wb")
-  return(arrow::read_feather(temp))
+  df = arrow::read_feather(temp)
+  df = df %>% dplyr::mutate_if(bit64::is.integer64, as.integer)
+  return(df)
 }
