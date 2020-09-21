@@ -3,3 +3,4 @@
 export(download_feather)
 export(download_parquet)
 export(fetch_airtable)
+importFrom(dplyr,"%>%")

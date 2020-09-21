@@ -56,6 +56,7 @@ fetch_airtable = function(..., query=list()) {
 #'
 #' @param url A direct URL of Feather file
 #' @return A dataframe with Feather file's data.
+#' @importFrom dplyr "%>%"
 #' @export
 #' @examples
 #' dataframe = download_feather("http://example.com/data/table.feather")
@@ -74,6 +75,7 @@ download_feather = function(url) {
 #'
 #' @param url A direct URL of Parquet file
 #' @return A dataframe with Parquet file's data.
+#' @importFrom dplyr "%>%"
 #' @export
 #' @examples
 #' dataframe = download_parquet("http://example.com/data/table.parquet")
