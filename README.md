@@ -8,8 +8,10 @@ library(sugarr)
 
 > ?fetch_airtable
 > ?download_feather
+> ?download_parquet
 ```
 
 ### Functions
-- `download_feather()` — fetches Feather file from URL into dataframe
-- `fetch_airtable()` — fetches data from Airtable API into dataframe
+- `download_feather(url)` — fetches Feather file from URL into dataframe
+- `download_parquet(url)` — fetches Parquet file from URL into dataframe
+- `fetch_airtable(base, table, token, query)` — fetches data from Airtable API into dataframe
